@@ -14,7 +14,7 @@ ln -s /jrcms-infra/terraform/5.prometheus-grafana/scripts /scripts
 
 ln -s /scripts/site.yaml /site.yaml
 
-ansible-playbook /site.yaml
-
 PROMETHEUS_CONFIG=/scripts/docker-compose/config/prometheus/prometheus.yml
 sed -i 's/APP_IP/APP_IP_PLACEHOLDER/g' $PROMETHEUS_CONFIG
+
+ansible-playbook /site.yaml
