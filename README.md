@@ -46,6 +46,10 @@ The stack exports ports below.
 - `9300`: Elasticsearch TCP transport
 - `80`: Kibana (Username: elastic, Password: changeme)
 
+Query Example:
+```
+type: request and response_status: 429
+```
 ## 4.app
 
 CMS application (can be replaced by other apps)
@@ -62,6 +66,12 @@ The application exports port ports below.
 - `9100`: node-exporter
 - `80`: grafana (Username: admin, Password: changeme)
 
+Query Example:
+```
+request_count
+rate(request_count[5m])
+request_count{http_status="500"}
+```
 # To execute
 
 cd to individual folder and use `../terraform.sh apply` to execute.
