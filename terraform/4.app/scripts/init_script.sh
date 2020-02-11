@@ -15,6 +15,6 @@ ln -s /jrcms-infra/terraform/4.app/scripts/ /scripts
 
 ln -s /scripts/site.yaml /site.yaml
 
-ansible-playbook /site.yaml
+sudo ansible-playbook /site.yaml
 
 sed -i 's/ELK_IP/ELK_IP_PLACEHOLDER/g' $ANSIBLE_PLAYBOOK

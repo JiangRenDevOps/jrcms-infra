@@ -2,6 +2,11 @@
 
 This is the terraform project to create JRCMS infrastructure.
 
+# Pre-requisite
+
+1. use `aws configure` to configure your AWS credential
+2. make sure you have `id_rsa.pub` file in your `~/.ssh` folder
+
 # Folder Structure
 
 ## 1.s3-state
