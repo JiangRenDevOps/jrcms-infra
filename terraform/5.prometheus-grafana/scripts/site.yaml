@@ -22,17 +22,6 @@
       roles:
         - geerlingguy.docker
         - geerlingguy.pip
-    
-    - hosts: localhost
-      connection: local 
-      become: yes
-      become_user: root
-      user: ubuntu
-      tasks:
-        - name: Clone ELK repo
-          git:
-            repo: 'https://github.com/deviantony/docker-elk.git'
-            dest: /docker-elk
 
     - hosts: localhost
       connection: local 
@@ -41,6 +30,4 @@
       user: ubuntu
       tasks:
         - name: Docker compose up
-          shell: |
-            cd /docker-elk
-            docker-compose up -d
+          shell: docker-compose up -f /scripts/docker-compose/docker-compose.yml -d

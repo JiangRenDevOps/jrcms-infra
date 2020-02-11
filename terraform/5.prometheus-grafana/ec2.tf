@@ -2,18 +2,18 @@ module "ec2_cluster" {
   source                 = "terraform-aws-modules/ec2-instance/aws"
   version                = "~> 2.0"
 
-  name                   = "elk"
+  name                   = "prometheus-grafana"
   instance_count         = 1
 
   ami                    = "ami-07ebfd5b3428b6f4d"
-  instance_type          = "t2.small"
+  instance_type          = "t2.micro"
   key_name               = "${data.terraform_remote_state.global_state.outputs.key_pair_key_name}"
   vpc_security_group_ids = ["${data.terraform_remote_state.global_state.outputs.all_sg_id}"]
   subnet_id              = "${data.terraform_remote_state.global_state.outputs.public_subnets[0]}"
 
-  user_data_base64       = "${base64encode(data.local_file.init_script.content)}"
+  user_data_base64       = "${base64encode(replace("${data.local_file.init_script.content}", "APP_IP_PLACEHOLDER", "${data.terraform_remote_state.app.outputs.ec2_ip}"))}"
   tags = {
-    Name        = "elk"
+    Name        = "prometheus-grafana"
     Terraform   = "true"
     Project     = "jrcms"
   }
