@@ -44,4 +44,5 @@
           shell: |
             cd /docker-elk
             sed -i 's#LS_JAVA_OPTS: "-Xmx256m -Xms256m"#LS_JAVA_OPTS: "-Xmx64m -Xms32m"#g' docker-compose.yml
+            sed -i 's#5601:5601#80:5601#g' docker-compose.yml
             docker-compose up -d
