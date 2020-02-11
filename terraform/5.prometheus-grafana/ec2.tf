@@ -22,6 +22,15 @@ data "local_file" "init_script" {
     filename = "scripts/init_script.sh"
 }
 
-output "ec2_ip" {
+output "grafana_ip" {
   value = "${module.ec2_cluster.public_ip[0]}"
+}
+
+output "jrcms_ip" {
+  value = "${data.terraform_remote_state.app.outputs.ec2_ip}"
+}
+
+
+output "elk_ip" {
+  value = "${data.terraform_remote_state.elk.outputs.ec2_ip}"
 }

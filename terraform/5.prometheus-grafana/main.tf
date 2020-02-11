@@ -22,6 +22,14 @@ data "terraform_remote_state" "global_state" {
     }
 }
 
+data "terraform_remote_state" "elk" {
+    backend = "s3"
+    config = {
+        bucket = "${data.terraform_remote_state.s3_state.outputs.bucket_raw}"
+        key    = "3.elk/terraform.tfstate"
+        region = "${data.terraform_remote_state.s3_state.outputs.region_raw}"
+    }
+}
 data "terraform_remote_state" "app" {
     backend = "s3"
     config = {

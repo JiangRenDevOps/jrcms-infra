@@ -29,7 +29,7 @@ The stack exports ports below.
 - `5000`: Logstash TCP input
 - `9200`: Elasticsearch HTTP
 - `9300`: Elasticsearch TCP transport
-- `80`: Kibana
+- `80`: Kibana (Username: elastic, Password: changeme)
 
 ## 4.app
 
@@ -45,7 +45,7 @@ The application exports port ports below.
 
 - `9090`: prometheus
 - `9100`: node-exporter
-- `80`: grafana
+- `80`: grafana (Username: admin, Password: changeme)
 
 # To execute
 
