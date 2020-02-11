@@ -30,4 +30,6 @@
       user: ubuntu
       tasks:
         - name: Docker compose up
-          shell: docker-compose up -f /scripts/docker-compose/docker-compose.yml -d
+          shell: |
+            cd /scripts/docker-compose
+            docker-compose up -d

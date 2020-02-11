@@ -10,10 +10,8 @@ ansible-galaxy install geerlingguy.pip
 
 git clone https://github.com/davisliu11/jrcms-infra.git /jrcms-infra
 
-SCRIPTS=/jrcms-infra/terraform/4.app/scripts/
-ln -s $SCRIPTS /scripts
+ln -s /jrcms-infra/terraform/4.app/scripts/ /scripts
 
-ANSIBLE_PLAYBOOK=$SCRIPTS/site.yaml
-ansible-playbook $ANSIBLE_PLAYBOOK
+ansible-playbook /scripts/site.yaml
 
 sed -i 's/ELK_IP/ELK_IP_PLACEHOLDER/g' $ANSIBLE_PLAYBOOK
