@@ -5,7 +5,22 @@ This is the terraform project to create JRCMS infrastructure.
 # Pre-requisite
 
 1. use `aws configure` to configure your AWS credential
+If you haven't configure, please configure it.
+
 2. make sure you have `id_rsa.pub` file in your `~/.ssh` folder
+You should be able to list the below file. 
+```
+ls ~/.ssh/id_rsa.pub
+```
+If not, please create the key by `ssh-keygen`.
+
+# To batch execute
+
+execute `./setup_all.sh`
+
+# To batch destroy
+
+execute `./cleanup_all.sh` and remove the s3 bucket: s3-terraform-state-storage-* 
 
 # Folder Structure
 
@@ -57,15 +72,6 @@ cd 1.s3-state
 ../terraform.sh init
 ../terraform.sh apply
 ```
-
-# To batch execute
-
-execute `../setup_all.sh`
-
-
-# To batch destroy
-
-execute `../cleanup_all.sh` and remove the s3 bucket: s3-terraform-state-storage-* 
 
 # To check failure in a host
 
