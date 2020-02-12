@@ -22,7 +22,17 @@
       roles:
         - geerlingguy.docker
         - geerlingguy.pip
-    
+
+    - hosts: localhost
+      connection: local 
+      become: yes
+      become_user: root
+      user: ubuntu
+      tasks:
+        - name: Docker compose up
+          shell: |
+            rm -rf /docker-elk
+            
     - hosts: localhost
       connection: local 
       become: yes
